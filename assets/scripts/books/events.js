@@ -41,8 +41,44 @@ const onDeleteBook = function (event) {
   }
 }
 
+const onUpdateBook = function (event) {
+  event.preventDefault()
+  console.log('Update book ran!')
+  const data = getFormFields(event.target)
+  const book = data.book
+  console.log(data)
+  console.log(book)
+
+  if (book.id.length !== 0) {
+    booksApi.update(data)
+    .then(booksUi.onNoContentSuccess)
+    .catch(booksUi.onError)
+  } else {
+    console.log('Please provide a book ID!')
+  }
+}
+
+const onCreateBook = function (event) {
+  event.preventDefault()
+  console.log('Create book ran!')
+  const data = getFormFields(event.target)
+  const book = data.book
+  console.log(data)
+  console.log(book)
+
+  if ((book.title.length !== 0) && (book.author.length !== 0)) {
+    booksApi.create(data)
+    .then(booksUi.onSuccess)
+    .catch(booksUi.onError)
+  } else {
+    console.log('Title and Author cannot be empty!')
+  }
+}
+
 module.exports = {
   onGetBooks,
   onGetBook,
-  onDeleteBook
+  onDeleteBook,
+  onUpdateBook,
+  onCreateBook
 }
