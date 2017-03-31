@@ -20,5 +20,6 @@ $(() => {
   $('#books-search').on('submit', bookEvents.onGetBooks)
   $('#book-search').on('submit', bookEvents.onGetBook)
   $('#book-delete').on('submit', bookEvents.onDeleteBook)
+  $('#book-update').on('submit', bookEvents.onUpdateBook)
+  $('#book-create').on('submit', bookEvents.onCreateBook)
 })
-
