@@ -10,11 +10,16 @@ const onSuccess = function (data) {
   }
 }
 
+const onNoContentSuccess = function () {
+  console.log('Your request was successful and returned no content')
+}
+
 const onError = function (response) {
   console.error(response)
 }
 
 module.exports = {
   onSuccess,
-  onError
+  onError,
+  onNoContentSuccess
 }
